@@ -55,25 +55,37 @@ XOS_CONSOLE_MAIN_MAIN \
 # udentity_exe HEADERS
 #
 udentity_exe_HEADERS += \
-$${UDENTITY_SRC}/xos/app/console/udentity/version/main_opt.hpp \
-$${UDENTITY_SRC}/xos/app/console/udentity/version/main.hpp \
+$${UDENTIFY_SRC}/xos/protocol/udtp/client/output.hpp \
+\
+$${UDENTIFY_SRC}/xos/app/console/protocol/udtp/client/main_opt.hpp \
+$${UDENTIFY_SRC}/xos/app/console/protocol/udtp/client/main.hpp \
+\
+$${UDENTITY_SRC}/xos/protocol/udtp/base/output.hpp \
+$${UDENTITY_SRC}/xos/protocol/udtp/server/output.hpp \
+\
+$${UDENTITY_SRC}/xos/app/console/protocol/udtp/base/main_opt.hpp \
+$${UDENTITY_SRC}/xos/app/console/protocol/udtp/base/main.hpp \
+$${UDENTITY_SRC}/xos/app/console/protocol/udtp/server/main_opt.hpp \
+$${UDENTITY_SRC}/xos/app/console/protocol/udtp/server/main.hpp \
 
 # udentity_exe SOURCES
 #
 udentity_exe_SOURCES += \
-$${UDENTITY_SRC}/xos/app/console/udentity/version/main_opt.cpp \
-$${UDENTITY_SRC}/xos/app/console/udentity/version/main.cpp \
+$${UDENTITY_SRC}/xos/protocol/udtp/server/output.cpp \
+\
+$${UDENTITY_SRC}/xos/app/console/protocol/udtp/server/main_opt.cpp \
+$${UDENTITY_SRC}/xos/app/console/protocol/udtp/server/main.cpp \
 
 ########################################################################
 # udentity_exe FRAMEWORKS
 #
 udentity_exe_FRAMEWORKS += \
-$${udentity_FRAMEWORKS} \
+$${udentity_rsa_FRAMEWORKS} \
 
 # udentity_exe LIBS
 #
 udentity_exe_LIBS += \
-$${udentity_LIBS} \
+$${udentity_rsa_LIBS} \
 
 ########################################################################
 # NO Qt

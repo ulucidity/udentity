@@ -16,7 +16,7 @@
 #   File: udtp.pri
 #
 # Author: $author$
-#   Date: 5/12/2022
+#   Date: 5/12/2022, 6/20/2022
 #
 # generic QtCreator project .pri file for framework udentity executable udtp
 ########################################################################
@@ -55,37 +55,41 @@ XOS_CONSOLE_MAIN_MAIN \
 # udtp HEADERS
 #
 udtp_HEADERS += \
-$${UTALAS_SRC}/xos/protocol/tls/content/type.hpp \
-$${UTALAS_SRC}/xos/protocol/tls/bulk/cipher/algorithm.hpp \
-$${UTALAS_SRC}/xos/protocol/tls/hash/algorithm/code.hpp \
-$${UTALAS_SRC}/xos/protocol/tls/signature/algorithm/code.hpp \
-$${UTALAS_SRC}/xos/protocol/tls/signature/hash/algorithm/code.hpp \
+$${UTLS_SRC}/xos/protocol/tls/content/type.hpp \
+$${UTLS_SRC}/xos/protocol/tls/bulk/cipher/algorithm.hpp \
+$${UTLS_SRC}/xos/protocol/tls/hash/algorithm/code.hpp \
+$${UTLS_SRC}/xos/protocol/tls/signature/algorithm/code.hpp \
+$${UTLS_SRC}/xos/protocol/tls/signature/hash/algorithm/code.hpp \
+$${UTLS_SRC}/xos/protocol/tls/encrypted/premaster/secret.hpp \
+$${UTLS_SRC}/xos/protocol/tls/key/exchange/algorithm.hpp \
+$${UTLS_SRC}/xos/protocol/tls/client/key/exchange/message.hpp \
+$${UTLS_SRC}/xos/protocol/tls/server/key/exchange/message.hpp \
 \
-$${UTALAS_SRC}/xos/protocol/tls/encrypted/premaster/secret.hpp \
-$${UTALAS_SRC}/xos/protocol/tls/key/exchange/algorithm.hpp \
-$${UTALAS_SRC}/xos/protocol/tls/client/key/exchange/message.hpp \
-$${UTALAS_SRC}/xos/protocol/tls/server/key/exchange/message.hpp \
+$${UDENTITY_SRC}/xos/protocol/udtp/base/output.hpp \
+$${UDENTITY_SRC}/xos/protocol/udtp/server/output.hpp \
 \
 $${UDENTITY_SRC}/xos/app/console/protocol/udtp/base/main_opt.hpp \
 $${UDENTITY_SRC}/xos/app/console/protocol/udtp/base/main.hpp \
-\
-$${UDENTITY_SRC}/xos/app/console/protocol/udtp/client/main_opt.hpp \
-$${UDENTITY_SRC}/xos/app/console/protocol/udtp/client/main.hpp \
-\
 $${UDENTITY_SRC}/xos/app/console/protocol/udtp/server/main_opt.hpp \
 $${UDENTITY_SRC}/xos/app/console/protocol/udtp/server/main.hpp \
+\
+$${UDENTIFY_SRC}/xos/protocol/udtp/client/output.hpp \
+\
+$${UDENTIFY_SRC}/xos/app/console/protocol/udtp/client/main_opt.hpp \
+$${UDENTIFY_SRC}/xos/app/console/protocol/udtp/client/main.hpp \
 
 # udtp SOURCES
 #
 udtp_SOURCES += \
-$${UTALAS_SRC}/xos/protocol/tls/content/type.cpp \
-$${UTALAS_SRC}/xos/protocol/tls/signature/hash/algorithm/code.cpp \
+$${UTLS_SRC}/xos/protocol/tls/content/type.cpp \
+$${UTLS_SRC}/xos/protocol/tls/signature/hash/algorithm/code.cpp \
+$${UTLS_SRC}/xos/protocol/tls/key/exchange/algorithm.cpp \
+$${UTLS_SRC}/xos/protocol/tls/server/key/exchange/message.cpp \
 \
-$${UTALAS_SRC}/xos/protocol/tls/key/exchange/algorithm.cpp \
-$${UTALAS_SRC}/xos/protocol/tls/server/key/exchange/message.cpp \
+$${UDENTIFY_SRC}/xos/protocol/udtp/client/output.cpp \
 \
-$${UDENTITY_SRC}/xos/app/console/protocol/udtp/client/main_opt.cpp \
-$${UDENTITY_SRC}/xos/app/console/protocol/udtp/client/main.cpp \
+$${UDENTIFY_SRC}/xos/app/console/protocol/udtp/client/main_opt.cpp \
+$${UDENTIFY_SRC}/xos/app/console/protocol/udtp/client/main.cpp \
 
 ########################################################################
 # udtp FRAMEWORKS
