@@ -16,7 +16,7 @@
 #   File: udttpcgicatch.pri
 #
 # Author: $author$
-#   Date: 6/2/2022
+#   Date: 6/2/2022, 7/11/2022
 #
 # generic QtCreator project .pri file for framework udentity executable udttpcgicatch
 ########################################################################
@@ -55,14 +55,14 @@ XOS_CONSOLE_MAIN_MAIN \
 # udttpcgicatch HEADERS
 #
 udttpcgicatch_HEADERS += \
-$${UDENTITY_SRC}/xos/app/console/network/protocol/http/cgi/catcher/main_opt.hpp \
-$${UDENTITY_SRC}/xos/app/console/network/protocol/http/cgi/catcher/main.hpp \
+$${UDENTITY_SRC}/xos/app/console/network/protocol/udttp/cgi/catcher/main_opt.hpp \
+$${UDENTITY_SRC}/xos/app/console/network/protocol/udttp/cgi/catcher/main.hpp \
 
 # udttpcgicatch SOURCES
 #
 udttpcgicatch_SOURCES += \
-$${UDENTITY_SRC}/xos/app/console/network/protocol/http/cgi/catcher/main_opt.cpp \
-$${UDENTITY_SRC}/xos/app/console/network/protocol/http/cgi/catcher/main.cpp \
+$${UDENTITY_SRC}/xos/app/console/network/protocol/udttp/cgi/catcher/main_opt.cpp \
+$${UDENTITY_SRC}/xos/app/console/network/protocol/udttp/cgi/catcher/main.cpp \
 
 ########################################################################
 # udttpcgicatch FRAMEWORKS

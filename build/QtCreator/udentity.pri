@@ -16,7 +16,7 @@
 #   File: udentity.pri
 #
 # Author: $author$
-#   Date: 4/2/2022, 6/20/2022
+#   Date: 4/2/2022, 7/11/2022
 #
 # build specific QtCreator project .pri file for framework udentity
 ########################################################################

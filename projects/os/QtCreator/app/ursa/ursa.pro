@@ -13,57 +13,70 @@
 # or otherwise) arising in any way out of the use of this software,
 # even if advised of the possibility of such damage.
 #
-#   File: libudentity.pri
+#   File: ursa.pro
 #
 # Author: $author$
-#   Date: 4/2/2022, 7/11/2022
+#   Date: 5/12/2022
 #
-# generic QtCreator project .pri file for framework udentity static library libudentity
+# os specific QtCreator project .pro file for framework udentity executable ursa
 ########################################################################
-
-########################################################################
-# libudentity
-XOS_LIB_UDENTITY_VERSION_BUILD_DATE = 7/11/2022 #$$system(~/bin/utility/tdate)
-
-# libudentity TARGET
 #
-libudentity_TARGET = udentity
-libudentity_TEMPLATE = lib
-libudentity_CONFIG += staticlib
-
-# libudentity INCLUDEPATH
+# Debug: udentity/build/os/QtCreator/Debug/bin/ursa
+# Release: udentity/build/os/QtCreator/Release/bin/ursa
+# Profile: udentity/build/os/QtCreator/Profile/bin/ursa
 #
-libudentity_INCLUDEPATH += \
-$${udentity_INCLUDEPATH} \
+include(../../../../../build/QtCreator/udentity.pri)
+include(../../../../QtCreator/udentity.pri)
+include(../../udentity.pri)
+include(../../../../QtCreator/app/ursa/ursa.pri)
 
-# libudentity DEFINES
-#
-libudentity_DEFINES += \
-$${udentity_DEFINES} \
-DEFAULT_LOGGING_LEVELS_ERROR \
-XOS_LIB_UDENTITY_VERSION_BUILD_DATE=$${XOS_LIB_UDENTITY_VERSION_BUILD_DATE} \
+TARGET = $${ursa_TARGET}
 
 ########################################################################
-# libudentity OBJECTIVE_HEADERS
+# INCLUDEPATH
 #
-#libudentity_OBJECTIVE_HEADERS += \
-#$${UDENTITY_SRC}/xos/lib/udentity/version.hh \
+INCLUDEPATH += \
+$${ursa_INCLUDEPATH} \
 
-# libudentity OBJECTIVE_SOURCES
-#
-#libudentity_OBJECTIVE_SOURCES += \
-#$${UDENTITY_SRC}/xos/lib/udentity/version.mm \
+# DEFINES
+# 
+DEFINES += \
+$${ursa_DEFINES} \
 
 ########################################################################
-# libudentity HEADERS
+# OBJECTIVE_HEADERS
 #
-libudentity_HEADERS += \
-$${UDENTITY_SRC}/xos/lib/udentity/version.hpp \
+OBJECTIVE_HEADERS += \
+$${ursa_OBJECTIVE_HEADERS} \
 
-# libudentity SOURCES
+# OBJECTIVE_SOURCES
 #
-libudentity_SOURCES += \
-$${UDENTITY_SRC}/xos/lib/udentity/version.cpp \
+OBJECTIVE_SOURCES += \
+$${ursa_OBJECTIVE_SOURCES} \
+
+########################################################################
+# HEADERS
+#
+HEADERS += \
+$${ursa_HEADERS} \
+$${ursa_OBJECTIVE_HEADERS} \
+
+# SOURCES
+#
+SOURCES += \
+$${ursa_SOURCES} \
+
+########################################################################
+# FRAMEWORKS
+#
+FRAMEWORKS += \
+$${ursa_FRAMEWORKS} \
+
+# LIBS
+#
+LIBS += \
+$${ursa_LIBS} \
+$${FRAMEWORKS} \
 
 ########################################################################
 

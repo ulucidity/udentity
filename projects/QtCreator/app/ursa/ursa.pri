@@ -13,66 +13,68 @@
 # or otherwise) arising in any way out of the use of this software,
 # even if advised of the possibility of such damage.
 #
-#   File: udentitycgi.pri
+#   File: ursa.pri
 #
 # Author: $author$
-#   Date: 4/18/2022, 7/11/2022
+#   Date: 5/12/2022, 7/11/2022
 #
-# generic QtCreator project .pri file for framework udentity executable udentitycgi
+# generic QtCreator project .pri file for framework udentity executable ursa
 ########################################################################
 
 ########################################################################
-# udentitycgi
+# ursa
 
-# udentitycgi TARGET
+# ursa TARGET
 #
-udentitycgi_TARGET = udentitycgi
+ursa_TARGET = ursa
 
-# udentitycgi INCLUDEPATH
+# ursa INCLUDEPATH
 #
-udentitycgi_INCLUDEPATH += \
+ursa_INCLUDEPATH += \
 $${udentity_INCLUDEPATH} \
 
-# udentitycgi DEFINES
+# ursa DEFINES
 #
-udentitycgi_DEFINES += \
+ursa_DEFINES += \
 $${udentity_DEFINES} \
 DEFAULT_LOGGING_LEVELS_ERROR \
 XOS_CONSOLE_MAIN_MAIN \
 
 ########################################################################
-# udentitycgi OBJECTIVE_HEADERS
+# ursa OBJECTIVE_HEADERS
 #
-#udentitycgi_OBJECTIVE_HEADERS += \
-#$${UDENTITY_SRC}/xos/app/console/udentity/cgi/main.hh \
+#ursa_OBJECTIVE_HEADERS += \
+#$${UDENTITY_SRC}/xos/app/console/crypto/rsa/server/main.hh \
 
-# udentitycgi OBJECTIVE_SOURCES
+# ursa OBJECTIVE_SOURCES
 #
-#udentitycgi_OBJECTIVE_SOURCES += \
-#$${UDENTITY_SRC}/xos/app/console/udentity/cgi/main.mm \
-
-########################################################################
-# udentitycgi HEADERS
-#
-udentitycgi_HEADERS += \
-$${UDENTITY_SRC}/xos/app/console/network/protocol/udttp/cgi/main_opt.hpp \
-$${UDENTITY_SRC}/xos/app/console/network/protocol/udttp/cgi/main.hpp \
-
-# udentitycgi SOURCES
-#
-udentitycgi_SOURCES += \
-$${UDENTITY_SRC}/xos/app/console/network/protocol/udttp/cgi/main_opt.cpp \
-$${UDENTITY_SRC}/xos/app/console/network/protocol/udttp/cgi/main.cpp \
+#ursa_OBJECTIVE_SOURCES += \
+#$${UDENTITY_SRC}/xos/app/console/crypto/rsa/server/main.mm \
 
 ########################################################################
-# udentitycgi FRAMEWORKS
+# ursa HEADERS
 #
-udentitycgi_FRAMEWORKS += \
-$${udentity_FRAMEWORKS} \
+ursa_HEADERS += \
+$${UDENTITY_SRC}/xos/app/console/crypto/rsa/server/main_opt.hpp \
+$${UDENTITY_SRC}/xos/app/console/crypto/rsa/server/main.hpp \
 
-# udentitycgi LIBS
+# ursa SOURCES
 #
-udentitycgi_LIBS += \
+ursa_SOURCES += \
+$${UCIFRA_SRC}/xos/crypto/random/prime/small_primes.cpp \
+\
+$${UDENTITY_SRC}/xos/app/console/crypto/rsa/server/main_opt.cpp \
+$${UDENTITY_SRC}/xos/app/console/crypto/rsa/server/main.cpp \
+
+########################################################################
+# ursa FRAMEWORKS
+#
+ursa_FRAMEWORKS += \
+$${udentity_rsa_FRAMEWORKS} \
+
+# ursa LIBS
+#
+ursa_LIBS += \
 $${udentity_rsa_LIBS} \
 
 ########################################################################

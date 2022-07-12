@@ -55,26 +55,17 @@ XOS_CONSOLE_MAIN_MAIN \
 # udentity_exe HEADERS
 #
 udentity_exe_HEADERS += \
-$${UDENTIFY_SRC}/xos/protocol/udtp/client/output.hpp \
+$${UDENTITY_SRC}/xos/app/console/network/sockets/protocol/udttp/base/main_opt.hpp \
+$${UDENTITY_SRC}/xos/app/console/network/sockets/protocol/udttp/base/main.hpp \
 \
-$${UDENTIFY_SRC}/xos/app/console/protocol/udtp/client/main_opt.hpp \
-$${UDENTIFY_SRC}/xos/app/console/protocol/udtp/client/main.hpp \
-\
-$${UDENTITY_SRC}/xos/protocol/udtp/base/output.hpp \
-$${UDENTITY_SRC}/xos/protocol/udtp/server/output.hpp \
-\
-$${UDENTITY_SRC}/xos/app/console/protocol/udtp/base/main_opt.hpp \
-$${UDENTITY_SRC}/xos/app/console/protocol/udtp/base/main.hpp \
-$${UDENTITY_SRC}/xos/app/console/protocol/udtp/server/main_opt.hpp \
-$${UDENTITY_SRC}/xos/app/console/protocol/udtp/server/main.hpp \
+$${UDENTITY_SRC}/xos/app/console/network/sockets/protocol/udttp/server/main_opt.hpp \
+$${UDENTITY_SRC}/xos/app/console/network/sockets/protocol/udttp/server/main.hpp \
 
 # udentity_exe SOURCES
 #
 udentity_exe_SOURCES += \
-$${UDENTITY_SRC}/xos/protocol/udtp/server/output.cpp \
-\
-$${UDENTITY_SRC}/xos/app/console/protocol/udtp/server/main_opt.cpp \
-$${UDENTITY_SRC}/xos/app/console/protocol/udtp/server/main.cpp \
+$${UDENTITY_SRC}/xos/app/console/network/sockets/protocol/udttp/server/main_opt.cpp \
+$${UDENTITY_SRC}/xos/app/console/network/sockets/protocol/udttp/server/main.cpp \
 
 ########################################################################
 # udentity_exe FRAMEWORKS
