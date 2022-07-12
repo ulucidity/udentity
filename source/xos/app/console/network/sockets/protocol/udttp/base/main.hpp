@@ -16,13 +16,15 @@
 ///   File: main.hpp
 ///
 /// Author: $author$
-///   Date: 3/5/2022
+///   Date: 7/1/2022
 ///////////////////////////////////////////////////////////////////////
 #ifndef XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_BASE_MAIN_HPP
 #define XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_BASE_MAIN_HPP
 
 #include "xos/app/console/network/sockets/protocol/udttp/base/main_opt.hpp"
 #include "xos/protocol/udtp/base/output.hpp"
+
+#define XOS_NETWORK_SOCKETS_PROTOCOL_UDTTP_PORT 8448
 
 namespace xos {
 namespace app {
@@ -31,6 +33,13 @@ namespace network {
 namespace sockets {
 namespace protocol {
 namespace udttp {
+
+/// enum sockets_port_t
+typedef short sockets_port_t;
+enum { 
+    sockets_port = XOS_NETWORK_SOCKETS_PROTOCOL_UDTTP_PORT
+}; /// enum port_t
+
 namespace base {
 
 /// class maint
@@ -54,7 +63,10 @@ public:
     typedef typename extends::file_t file_t;
 
     /// constructor / destructor
-    maint(): run_(0), connect_port_(8448), verbose_output_(false) {
+    maint()
+    : run_(0), 
+      verbose_output_(false),
+      accept_port_(sockets_port), connect_port_(sockets_port) {
     }
     virtual ~maint() {
     }
@@ -67,6 +79,7 @@ protected:
     typedef typename extends::in_reader_t in_reader_t;
     typedef typename extends::out_writer_t out_writer_t;
     typedef typename extends::err_writer_t err_writer_t;
+
     typedef TOutput output_t;
     typedef typename output_t::output_to_t output_to_t;
 
@@ -83,6 +96,18 @@ protected:
     }
 
     /// ...output_..._key_run
+    virtual int default_output_client_key_pair_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        output_t& output = this->output(); 
+        output.output_client_key_pair();
+        return err;
+    }
+    virtual int default_output_key_pair_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        output_t& output = this->output(); 
+        output.output_key_pair();
+        return err;
+    }
     virtual int default_output_private_key_run(int argc, char_t** argv, char_t** env) {
         int err = 0;
         output_t& output = this->output(); 
@@ -122,19 +147,75 @@ protected:
         return err;
     }
 
-    /// ...output
+    /// on...option
+    virtual int on_set_rsa_key_pair_option
+    (const char_t* optarg, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+            output_t& output = this->output(); 
+            output.on_set_rsa_key_pair_option(optarg);
+        }
+        return err;
+    }
+    virtual int on_set_rsa_private_key_option
+    (const char_t* optarg, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+            output_t& output = this->output(); 
+            output.on_set_rsa_private_key_option(optarg);
+        }
+        return err;
+    }
+    virtual int on_set_rsa_public_key_option
+    (const char_t* optarg, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+            output_t& output = this->output(); 
+            output.on_set_rsa_public_key_option(optarg);
+        }
+        return err;
+    }
+    virtual int on_file_input_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        output_t& output = this->output(); 
+        output.set_on_set_file_literals();
+        return err;
+    }
+    virtual int on_string_input_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        output_t& output = this->output(); 
+        output.set_on_set_string_literals();
+        return err;
+    }
+    virtual int on_verbose_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        output_t& output = this->output(); 
+        output.set_verbose_output(set_verbose_output(true));
+        return err;
+    }
+
+    /// ...put
     virtual output_t& output() const {
         return (output_t&)output_;
     }
     virtual bool& set_verbose_output(const bool& to) {
         verbose_output_ = to;
-        return (bool&)verbose_output_;
+        return verbose_output_;
     }
     virtual bool& verbose_output() const {
         return (bool&)verbose_output_;
     }
 
-    /// connect_port
+    /// ...port
+    virtual short& accept_port() const {
+        return (short&)accept_port_;
+    }
     virtual short& connect_port() const {
         return (short&)connect_port_;
     }
@@ -142,7 +223,7 @@ protected:
 protected:
     output_t output_;
     bool verbose_output_;
-    short connect_port_;
+    short accept_port_, connect_port_;
 }; /// class maint
 typedef maint<> main;
 

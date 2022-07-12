@@ -16,7 +16,7 @@
 ///   File: main_opt.cpp
 ///
 /// Author: $author$
-///   Date: 3/5/2022
+///   Date: 7/1/2022
 ///////////////////////////////////////////////////////////////////////
 #include "xos/app/console/network/sockets/protocol/udttp/base/main_opt.hpp"
 
@@ -33,9 +33,9 @@ namespace protocol {
 namespace udttp {
 namespace base {
 
-/// class main
+/// class main_opt
 #if defined(XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_BASE_MAIN_OPT_INSTANCE)
-static main the_main;
+static main_opt the_main_opt;
 #endif /// defined(XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_BASE_MAIN_OPT_INSTANCE)
 
 } /// namespace base

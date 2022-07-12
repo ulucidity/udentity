@@ -16,7 +16,7 @@
 ///   File: main_opt.cpp
 ///
 /// Author: $author$
-///   Date: 3/14/2022
+///   Date: 7/4/2022
 ///////////////////////////////////////////////////////////////////////
 #include "xos/app/console/network/protocol/http/cgi/main_opt.hpp"
 
@@ -32,9 +32,9 @@ namespace protocol {
 namespace http {
 namespace cgi {
 
-/// class main
+/// class main_opt
 #if defined(XOS_APP_CONSOLE_NETWORK_PROTOCOL_HTTP_CGI_MAIN_OPT_INSTANCE)
-static main the_main;
+static main_opt the_main_opt;
 #endif /// defined(XOS_APP_CONSOLE_NETWORK_PROTOCOL_HTTP_CGI_MAIN_OPT_INSTANCE)
 
 } /// namespace cgi

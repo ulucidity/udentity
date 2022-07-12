@@ -16,7 +16,7 @@
 ///   File: main.hpp
 ///
 /// Author: $author$
-///   Date: 5/12/2022, 6/2/2022
+///   Date: 7/2/2022
 ///////////////////////////////////////////////////////////////////////
 #ifndef XOS_APP_CONSOLE_PROTOCOL_UDTP_BASE_MAIN_HPP
 #define XOS_APP_CONSOLE_PROTOCOL_UDTP_BASE_MAIN_HPP
@@ -32,7 +32,7 @@ namespace base {
 
 /// class maint
 template 
-<class TOutput = xos::protocol::udtp::base::output, 
+<class TOutput = xos::protocol::udtp::base::output,
  class TExtends = xos::app::console::protocol::udtp::base::main_optt<TOutput>, 
  class TImplements = typename TExtends::implements>
 
@@ -65,7 +65,7 @@ protected:
     typedef typename extends::out_writer_t out_writer_t;
     typedef typename extends::err_writer_t err_writer_t;
     typedef typename extends::output_t output_t;
-
+    
     /// ...run
     int (derives::*run_)(int argc, char_t** argv, char_t** env);
     virtual int run(int argc, char_t** argv, char_t** env) {
@@ -75,26 +75,6 @@ protected:
         } else {
             err = extends::run(argc, argv, env);
         }
-        return err;
-    }
-
-    /// ...output...key...run
-    virtual int default_output_rsa_public_key_run(int argc, char_t** argv, char_t** env) {
-        int err = 0;
-        output_t& output = this->output(); 
-        output.output_public_key();
-        return err;
-    }
-    virtual int default_output_rsa_private_key_run(int argc, char_t** argv, char_t** env) {
-        int err = 0;
-        output_t& output = this->output(); 
-        output.output_private_key();
-        return err;
-    }
-    virtual int default_output_rsa_key_pair_run(int argc, char_t** argv, char_t** env) {
-        int err = 0;
-        output_t& output = this->output(); 
-        output.output_key_pair();
         return err;
     }
 
@@ -121,6 +101,78 @@ protected:
         int err = 0;
         output_t& output = this->output(); 
         output.output_key_expansion_seed();
+        return err;
+    }
+
+    /// ...output...key...run
+    virtual int default_output_server_rsa_key_pair_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        output_t& output = this->output(); 
+        output.output_server_rsa_key_pair();
+        return err;
+    }
+    virtual int default_output_client_rsa_key_pair_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        output_t& output = this->output(); 
+        output.output_client_rsa_key_pair();
+        return err;
+    }
+
+    /// ...option...
+    virtual int on_set_server_rsa_key_pair_option
+    (const char_t* optarg, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+            output_t& output = this->output(); 
+            output.on_set_server_rsa_key_pair_option(optarg);
+        }
+        return err;
+    }
+    virtual int on_set_client_rsa_key_pair_option
+    (const char_t* optarg, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+            output_t& output = this->output(); 
+            output.on_set_client_rsa_key_pair_option(optarg);
+        }
+        return err;
+    }
+
+    /// ...option...
+    virtual int on_set_pseudo_random_secret_option
+    (const char_t* optarg, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+            output_t& output = this->output(); 
+            output.on_set_pseudo_random_secret_option(optarg);
+        }
+        return err;
+    }
+    virtual int on_set_pseudo_random_seed_option
+    (const char_t* optarg, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+            output_t& output = this->output(); 
+            output.on_set_pseudo_random_seed_option(optarg);
+        }
+        return err;
+    }
+    virtual int on_set_master_secret_seed_option
+    (const char_t* optarg, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+            output_t& output = this->output(); 
+            output.on_set_master_secret_seed_option(optarg);
+        }
+        return err;
+    }
+    virtual int on_set_key_expansion_seed_option
+    (const char_t* optarg, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+            output_t& output = this->output(); 
+            output.on_set_key_expansion_seed_option(optarg);
+        }
         return err;
     }
 

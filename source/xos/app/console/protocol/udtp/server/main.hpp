@@ -16,7 +16,7 @@
 ///   File: main.hpp
 ///
 /// Author: $author$
-///   Date: 5/13/2022
+///   Date: 5/20/2022
 ///////////////////////////////////////////////////////////////////////
 #ifndef XOS_APP_CONSOLE_PROTOCOL_UDTP_SERVER_MAIN_HPP
 #define XOS_APP_CONSOLE_PROTOCOL_UDTP_SERVER_MAIN_HPP
@@ -32,8 +32,7 @@ namespace server {
 
 /// class maint
 template 
-<class TOutput = xos::protocol::udtp::server::output, 
- class TExtends = xos::app::console::protocol::udtp::server::main_optt<TOutput>, 
+<class TExtends = xos::app::console::protocol::udtp::server::main_opt, 
  class TImplements = typename TExtends::implements>
 
 class exported maint: virtual public TImplements, public TExtends {
@@ -78,15 +77,20 @@ protected:
         return err;
     }
 
-    /// ...client_hello_run
+    /// ...hello...run
     virtual int client_hello_run(int argc, char_t** argv, char_t** env) {
         int err = 0;
         output_t& output = this->output(); 
         output.output_client_hello_messages();
         return err;
     }
-    /// ...server_hello_run
     virtual int server_hello_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        output_t& output = this->output(); 
+        output.output_server_hello_messages();
+        return err;
+    }
+    virtual int server_hello_message_run(int argc, char_t** argv, char_t** env) {
         int err = 0;
         output_t& output = this->output(); 
         output.output_server_hello_message();
@@ -94,12 +98,21 @@ protected:
     }
 
     /// ...option...
-    virtual int on_set_client_hello_message_option
+    virtual int on_set_client_hello_option
     (const char_t* optarg, int argc, char_t**argv, char_t**env) {
         int err = 0;
         if ((optarg) && (optarg[0])) {
-            output_t& output = this->output();
-            output.on_set_client_hello_message_option(optarg);
+            output_t& output = this->output(); 
+            output.on_set_client_hello_option(optarg);
+        }
+        return err;
+    }
+    virtual int on_set_server_hello_option
+    (const char_t* optarg, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+            output_t& output = this->output(); 
+            output.on_set_server_hello_option(optarg);
         }
         return err;
     }
@@ -107,9 +120,17 @@ protected:
     (const char_t* optarg, int argc, char_t**argv, char_t**env) {
         int err = 0;
         if ((optarg) && (optarg[0])) {
-            output_t& output = this->output();
+            output_t& output = this->output(); 
             output.on_set_server_hello_message_option(optarg);
         }
+        return err;
+    }
+    virtual int on_client_key_exchange_only_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        output_t& output = this->output(); 
+        output.set_expect_server_key_exchange(false);
         return err;
     }
 

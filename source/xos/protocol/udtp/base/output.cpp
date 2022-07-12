@@ -16,7 +16,7 @@
 ///   File: output.cpp
 ///
 /// Author: $author$
-///   Date: 3/3/2022
+///   Date: 7/2/2022
 ///////////////////////////////////////////////////////////////////////
 #include "xos/protocol/udtp/base/output.hpp"
 

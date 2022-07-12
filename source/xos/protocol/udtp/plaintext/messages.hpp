@@ -16,7 +16,7 @@
 ///   File: messages.hpp
 ///
 /// Author: $author$
-///   Date: 3/13/2022, 6/2/2022
+///   Date: 5/19/2022
 ///////////////////////////////////////////////////////////////////////
 #ifndef XOS_PROTOCOL_UDTP_PLAINTEXT_MESSAGES_HPP
 #define XOS_PROTOCOL_UDTP_PLAINTEXT_MESSAGES_HPP
@@ -71,4 +71,4 @@ typedef messagest<> messages;
 } /// namespace protocol
 } /// namespace xos
 
-#endif /// XOS_PROTOCOL_UDTP_PLAINTEXT_MESSAGES_HPP
+#endif /// ndef XOS_PROTOCOL_UDTP_PLAINTEXT_MESSAGES_HPP
