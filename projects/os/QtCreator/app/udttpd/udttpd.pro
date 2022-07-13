@@ -13,57 +13,70 @@
 # or otherwise) arising in any way out of the use of this software,
 # even if advised of the possibility of such damage.
 #
-#   File: libudentity.pri
+#   File: udttpd.pro
 #
 # Author: $author$
-#   Date: 4/2/2022, 7/13/2022
+#   Date: 7/13/2022
 #
-# generic QtCreator project .pri file for framework udentity static library libudentity
+# os specific QtCreator project .pro file for framework udentity executable udttpd
 ########################################################################
-
-########################################################################
-# libudentity
-XOS_LIB_UDENTITY_VERSION_BUILD_DATE = 7/13/2022 #$$system(~/bin/utility/tdate)
-
-# libudentity TARGET
 #
-libudentity_TARGET = udentity
-libudentity_TEMPLATE = lib
-libudentity_CONFIG += staticlib
-
-# libudentity INCLUDEPATH
+# Debug: udentity/build/os/QtCreator/Debug/bin/udttpd
+# Release: udentity/build/os/QtCreator/Release/bin/udttpd
+# Profile: udentity/build/os/QtCreator/Profile/bin/udttpd
 #
-libudentity_INCLUDEPATH += \
-$${udentity_INCLUDEPATH} \
+include(../../../../../build/QtCreator/udentity.pri)
+include(../../../../QtCreator/udentity.pri)
+include(../../udentity.pri)
+include(../../../../QtCreator/app/udttpd/udttpd.pri)
 
-# libudentity DEFINES
-#
-libudentity_DEFINES += \
-$${udentity_DEFINES} \
-DEFAULT_LOGGING_LEVELS_ERROR \
-XOS_LIB_UDENTITY_VERSION_BUILD_DATE=$${XOS_LIB_UDENTITY_VERSION_BUILD_DATE} \
+TARGET = $${udttpd_TARGET}
 
 ########################################################################
-# libudentity OBJECTIVE_HEADERS
+# INCLUDEPATH
 #
-#libudentity_OBJECTIVE_HEADERS += \
-#$${UDENTITY_SRC}/xos/lib/udentity/version.hh \
+INCLUDEPATH += \
+$${udttpd_INCLUDEPATH} \
 
-# libudentity OBJECTIVE_SOURCES
-#
-#libudentity_OBJECTIVE_SOURCES += \
-#$${UDENTITY_SRC}/xos/lib/udentity/version.mm \
+# DEFINES
+# 
+DEFINES += \
+$${udttpd_DEFINES} \
 
 ########################################################################
-# libudentity HEADERS
+# OBJECTIVE_HEADERS
 #
-libudentity_HEADERS += \
-$${UDENTITY_SRC}/xos/lib/udentity/version.hpp \
+OBJECTIVE_HEADERS += \
+$${udttpd_OBJECTIVE_HEADERS} \
 
-# libudentity SOURCES
+# OBJECTIVE_SOURCES
 #
-libudentity_SOURCES += \
-$${UDENTITY_SRC}/xos/lib/udentity/version.cpp \
+OBJECTIVE_SOURCES += \
+$${udttpd_OBJECTIVE_SOURCES} \
+
+########################################################################
+# HEADERS
+#
+HEADERS += \
+$${udttpd_HEADERS} \
+$${udttpd_OBJECTIVE_HEADERS} \
+
+# SOURCES
+#
+SOURCES += \
+$${udttpd_SOURCES} \
+
+########################################################################
+# FRAMEWORKS
+#
+FRAMEWORKS += \
+$${udttpd_FRAMEWORKS} \
+
+# LIBS
+#
+LIBS += \
+$${udttpd_LIBS} \
+$${FRAMEWORKS} \
 
 ########################################################################
 

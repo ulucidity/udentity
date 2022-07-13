@@ -13,57 +13,72 @@
 # or otherwise) arising in any way out of the use of this software,
 # even if advised of the possibility of such damage.
 #
-#   File: libudentity.pri
+#   File: udttpd.pri
 #
 # Author: $author$
-#   Date: 4/2/2022, 7/13/2022
+#   Date: 7/13/2022
 #
-# generic QtCreator project .pri file for framework udentity static library libudentity
+# generic QtCreator project .pri file for framework udentity executable udttpd
 ########################################################################
 
 ########################################################################
-# libudentity
-XOS_LIB_UDENTITY_VERSION_BUILD_DATE = 7/13/2022 #$$system(~/bin/utility/tdate)
+# udttpd
 
-# libudentity TARGET
+# udttpd TARGET
 #
-libudentity_TARGET = udentity
-libudentity_TEMPLATE = lib
-libudentity_CONFIG += staticlib
+udttpd_TARGET = udttpd
 
-# libudentity INCLUDEPATH
+# udttpd INCLUDEPATH
 #
-libudentity_INCLUDEPATH += \
+udttpd_INCLUDEPATH += \
 $${udentity_INCLUDEPATH} \
 
-# libudentity DEFINES
+# udttpd DEFINES
 #
-libudentity_DEFINES += \
+udttpd_DEFINES += \
 $${udentity_DEFINES} \
 DEFAULT_LOGGING_LEVELS_ERROR \
-XOS_LIB_UDENTITY_VERSION_BUILD_DATE=$${XOS_LIB_UDENTITY_VERSION_BUILD_DATE} \
+XOS_CONSOLE_MAIN_MAIN \
 
 ########################################################################
-# libudentity OBJECTIVE_HEADERS
+# udttpd OBJECTIVE_HEADERS
 #
-#libudentity_OBJECTIVE_HEADERS += \
-#$${UDENTITY_SRC}/xos/lib/udentity/version.hh \
+#udttpd_OBJECTIVE_HEADERS += \
+#$${UDENTITY_SRC}/xos/app/console/udttpd/main.hh \
 
-# libudentity OBJECTIVE_SOURCES
+# udttpd OBJECTIVE_SOURCES
 #
-#libudentity_OBJECTIVE_SOURCES += \
-#$${UDENTITY_SRC}/xos/lib/udentity/version.mm \
-
-########################################################################
-# libudentity HEADERS
-#
-libudentity_HEADERS += \
-$${UDENTITY_SRC}/xos/lib/udentity/version.hpp \
-
-# libudentity SOURCES
-#
-libudentity_SOURCES += \
-$${UDENTITY_SRC}/xos/lib/udentity/version.cpp \
+#udttpd_OBJECTIVE_SOURCES += \
+#$${UDENTITY_SRC}/xos/app/console/udttpd/main.mm \
 
 ########################################################################
+# udttpd HEADERS
+#
+udttpd_HEADERS += \
+$${UDENTITY_SRC}/xos/app/console/network/sockets/protocol/udttp/base/main_opt.hpp \
+$${UDENTITY_SRC}/xos/app/console/network/sockets/protocol/udttp/base/main.hpp \
+\
+$${UDENTITY_SRC}/xos/app/console/network/sockets/protocol/udttp/server/main_opt.hpp \
+$${UDENTITY_SRC}/xos/app/console/network/sockets/protocol/udttp/server/main.hpp \
+
+# udttpd SOURCES
+#
+udttpd_SOURCES += \
+$${UDENTITY_SRC}/xos/app/console/network/sockets/protocol/udttp/server/main_opt.cpp \
+$${UDENTITY_SRC}/xos/app/console/network/sockets/protocol/udttp/server/main.cpp \
+
+########################################################################
+# udttpd FRAMEWORKS
+#
+udttpd_FRAMEWORKS += \
+$${udentity_rsa_FRAMEWORKS} \
+
+# udttpd LIBS
+#
+udttpd_LIBS += \
+$${udentity_rsa_LIBS} \
+
+########################################################################
+# NO Qt
+QT -= gui core
 
